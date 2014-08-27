@@ -1,0 +1,5 @@
+.gradle
+.idea
+build
+.gradletasknamecache
+jaxrs-raml.iml

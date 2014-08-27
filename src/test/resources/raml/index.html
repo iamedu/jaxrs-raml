@@ -1,0 +1,457 @@
+<!DOCTYPE HTML><html><head><title>Jukebox API API documentation</title><meta http-equiv=X-UA-Compatible content="IE=edge"><meta http-equiv=Content-Type content="text/html; charset=utf-8"><meta name=generator content="https://github.com/kevinrenskers/raml2html 0.30.0"><link rel=stylesheet href=http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css><link rel=stylesheet href=http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/default.min.css><script type=text/javascript src=http://code.jquery.com/jquery-1.11.0.min.js></script><script type=text/javascript src=http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js></script><script type=text/javascript src=http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/highlight.min.js></script><script type=text/javascript>
+        $(document).ready(function() {
+            $('.page-header pre code, .top-resource-description pre code').each(function(i, block) {
+                hljs.highlightBlock(block);
+            });
+
+            $('[data-toggle]').click(function() {
+                var selector = $(this).data('target') + ' pre code';
+                $(selector).each(function(i, block) {
+                    hljs.highlightBlock(block);
+                });
+            });
+        });
+    </script><style>
+        .hljs {
+            background: transparent;
+        }
+        .parent {
+            color: #999;
+        }
+        .list-group-item > .badge {
+            float: none;
+            margin-right: 6px;
+        }
+        .panel-title > .methods {
+            float: right;
+        }
+        .badge {
+            border-radius: 0;
+            text-transform: uppercase;
+            width: 70px;
+            font-weight: normal;
+            color: #f3f3f6;
+            line-height: normal;
+        }
+        .badge_get {
+            background-color: #63a8e2;
+        }
+        .badge_post {
+            background-color: #6cbd7d;
+        }
+        .badge_put {
+            background-color: #22bac4;
+        }
+        .badge_delete {
+            background-color: #d26460;
+        }
+        .list-group, .panel-group {
+            margin-bottom: 0;
+        }
+        .panel-group .panel+.panel-white {
+            margin-top: 0;
+        }
+        .panel-group .panel-white {
+            border-bottom: 1px solid #F5F5F5;
+            border-radius: 0;
+        }
+        .panel-white:last-child {
+            border-bottom-color: white;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+        }
+        .panel-white .panel-heading {
+            background: white;
+        }
+        .tab-pane ul {
+            padding-left: 2em;
+        }
+        .tab-pane h2 {
+            font-size: 1.2em;
+            padding-bottom: 4px;
+            border-bottom: 1px solid #ddd;
+        }
+        .tab-pane h3 {
+            font-size: 1.1em;
+        }
+        .tab-content {
+            border-left: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            padding: 10px;
+        }
+        #sidebar {
+            margin-top: 30px;
+        }
+        .top-resource-description {
+            border-bottom: 1px solid #ddd;
+            background: #fcfcfc;
+            padding: 15px 15px 0 15px;
+            margin: -15px -15px 10px -15px;
+        }
+        .resource-description {
+            border-bottom: 1px solid #fcfcfc;
+            background: #fcfcfc;
+            padding: 15px 15px 0 15px;
+            margin: -15px -15px 10px -15px;
+        }
+        .panel > .panel-body > .panel-group > .panel:first-child .resource-description {
+            display: none;
+        }
+        .list-group .badge {
+            float: left;
+        }
+        .method_description {
+            margin-left: 85px;
+        }
+        .method_description p:last-child {
+            margin: 0;
+        }
+    </style></head><body data-spy=scroll data-target=#sidebar><div class=container><div class=row><div class=col-md-9 role=main><div class=page-header><h1>Jukebox API API documentation <small>version v1</small></h1><p>http://localhost:8080/raml-test/api/</p></div><div class="panel panel-default"><div class=panel-heading><h3 id=_songs class=panel-title>Songs</h3></div><div class=panel-body><div class=top-resource-description><p>Collection of available songs in Jukebox.</p></div><div class=panel-group><div class="panel panel-white"><div class=panel-heading><h4 class=panel-title><a class=collapsed data-toggle=collapse href=#panel__songs><span class=parent></span>/songs</a> <span class=methods><a href=# data-toggle=modal data-target=#_songs_get><span class="badge badge_get">get</span></a> <a href=# data-toggle=modal data-target=#_songs_post><span class="badge badge_post">post</span></a></span></h4></div><div id=panel__songs class="panel-collapse collapse"><div class=panel-body><div class=resource-description><p>Collection of available songs in Jukebox.</p></div><div class=list-group><a href=# data-toggle=modal data-target=#_songs_get class=list-group-item><span class="badge badge_get">get</span><div class=method_description><p>Get a list of songs.</p></div><div class=clearfix></div></a> <a href=# data-toggle=modal data-target=#_songs_post class=list-group-item><span class="badge badge_post">post</span><div class=method_description><p>Add a new song to Jukebox.</p></div><div class=clearfix></div></a></div></div></div><div class="modal fade" tabindex=0 id=_songs_get><div class=modal-dialog><div class=modal-content><div class=modal-header><button type=button class=close data-dismiss=modal aria-hidden=true>&times;</button><h4 class=modal-title id=myModalLabel><span class="badge badge_get">get</span> <span class=parent></span>/songs</h4></div><div class=modal-body><div class="alert alert-info"><p>Get a list of songs.</p></div><ul class="nav nav-tabs"><li class=active><a href=#_songs_get_request data-toggle=tab>Request</a></li><li><a href=#_songs_get_response data-toggle=tab>Response</a></li></ul><div class=tab-content><div class="tab-pane active" id=_songs_get_request><h3>Headers</h3><ul><li><strong>X-Auth-Token</strong>: <em>required (string)</em></li></ul><h3>Query Parameters</h3><ul><li><strong>offset</strong> <em>(integer)</em><p>Skip over a number of elements by specifying an offset value for the query</p><p><small><strong>Example</strong>:<pre><code>20</code></pre></small></p></li><li><strong>limit</strong> <em>(integer)</em><p>Limit the number of elements on the response</p><p><small><strong>Example</strong>:<pre><code>80</code></pre></small></p></li><li><strong>orderBy</strong> <em>(string)</em><p>Order by field: songTitle</p></li><li><strong>order</strong> <em>one of (desc,asc)</em><p>Order</p></li><li><strong>query</strong> <em>(string)</em><p>JSON array [{"field1","value1","operator1"},{"field2","value2","operator2"},...,{"fieldN","valueN","operatorN"}] with valid searchable fields: songTitle</p><p><small><strong>Example</strong>:<pre><code>["songTitle", "Get L", "like"]
+</code></pre></small></p></li></ul></div><div class=tab-pane id=_songs_get_response><h2>HTTP status code <a href=http://httpstatus.es/200 target=_blank>200</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p><p><small><strong>Example</strong>:<pre><code>[
+  {
+    "songId": "550e8400-e29b-41d4-a716-446655440000",
+    "songTitle": "Get Lucky"
+  },
+  {
+    "songId": "550e8400-e29b-41d4-a716-446655440111",
+    "songTitle": "Loose yourself to dance"
+  },
+  {
+    "songId": "550e8400-e29b-41d4-a716-446655440222",
+    "songTitle": "Gio sorgio by Morodera"
+  }
+]
+
+</code></pre></small></p></div></div></div></div></div></div><div class="modal fade" tabindex=0 id=_songs_post><div class=modal-dialog><div class=modal-content><div class=modal-header><button type=button class=close data-dismiss=modal aria-hidden=true>&times;</button><h4 class=modal-title id=myModalLabel><span class="badge badge_post">post</span> <span class=parent></span>/songs</h4></div><div class=modal-body><div class="alert alert-info"><p>Add a new song to Jukebox.</p></div><ul class="nav nav-tabs"><li class=active><a href=#_songs_post_request data-toggle=tab>Request</a></li><li><a href=#_songs_post_response data-toggle=tab>Response</a></li></ul><div class=tab-content><div class="tab-pane active" id=_songs_post_request><h3>Headers</h3><ul><li><strong>X-Auth-Token</strong>: <em>required (string)</em></li></ul><h3>Query Parameters</h3><ul><li><strong>access_token</strong> <em>required (string)</em><p>The access token provided by the authentication application</p><p><small><strong>Example</strong>:<pre><code>AABBCCDD</code></pre></small></p></li></ul><h3>Body</h3><p><strong>Type: application/json</strong></p><p><small><strong>Schema</strong>:<pre><code>{
+  "type": "object",
+  "$schema": "http://json-schema.org/draft-03/schema",
+  "id": "http://jsonschema.net",
+  "required": true,
+  "properties": {
+    "songId": {
+      "type": "string",
+      "required": true,
+      "minLength": 36,
+      "maxLength": 36
+    },
+    "songTitle": {
+      "type": "string",
+      "required": true
+    },
+    "albumId": {
+      "type": "string",
+      "required": true,
+      "minLength": 36,
+      "maxLength": 36
+    }
+  }
+}
+</code></pre></small></p><p><small><strong>Example</strong>:<pre><code>{
+  "songId": "550e8400-e29b-41d4-a716-446655440000",
+  "songTitle": "Get Lucky",
+  "albumId": "183100e3-0e2b-4404-a716-66104d440550"
+}
+
+</code></pre></small></p></div><div class=tab-pane id=_songs_post_response><h2>HTTP status code <a href=http://httpstatus.es/200 target=_blank>200</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p><p><small><strong>Example</strong>:<pre><code>{ "message": "The song has been properly entered" }
+</code></pre></small></p></div></div></div></div></div></div></div><div class="panel panel-white"><div class=panel-heading><h4 class=panel-title><a class=collapsed data-toggle=collapse href=#panel__songs__songId_><span class=parent>/songs</span>/{songId}</a> <span class=methods><a href=# data-toggle=modal data-target=#_songs__songId__get><span class="badge badge_get">get</span></a></span></h4></div><div id=panel__songs__songId_ class="panel-collapse collapse"><div class=panel-body><div class=resource-description><p>Entity representing a song</p></div><div class=list-group><a href=# data-toggle=modal data-target=#_songs__songId__get class=list-group-item><span class="badge badge_get">get</span><div class=method_description><p>Get the song with songId = {songId}</p></div><div class=clearfix></div></a></div></div></div><div class="modal fade" tabindex=0 id=_songs__songId__get><div class=modal-dialog><div class=modal-content><div class=modal-header><button type=button class=close data-dismiss=modal aria-hidden=true>&times;</button><h4 class=modal-title id=myModalLabel><span class="badge badge_get">get</span> <span class=parent>/songs</span>/{songId}</h4></div><div class=modal-body><div class="alert alert-info"><p>Get the song with songId = {songId}</p></div><ul class="nav nav-tabs"><li class=active><a href=#_songs__songId__get_request data-toggle=tab>Request</a></li><li><a href=#_songs__songId__get_response data-toggle=tab>Response</a></li></ul><div class=tab-content><div class="tab-pane active" id=_songs__songId__get_request><h3>URI Parameters</h3><ul><li><strong>songId</strong>: <em>required (string)</em></li></ul><h3>Headers</h3><ul><li><strong>X-Auth-Token</strong>: <em>required (string)</em></li></ul></div><div class=tab-pane id=_songs__songId__get_response><h2>HTTP status code <a href=http://httpstatus.es/200 target=_blank>200</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p><p><small><strong>Example</strong>:<pre><code>{
+  "songId": "550e8400-e29b-41d4-a716-446655440000",
+  "songTitle": "Get Lucky",
+  "duration": "6:07",
+  "artist": {
+    "artistId": "110e8300-e32b-41d4-a716-664400445500"
+    "artistName": "Daft Punk",
+    "imageURL": "http://travelhymns.com/wp-content/uploads/2013/06/random-access-memories1.jpg"
+  },
+  "album": {
+    "albumId": "183100e3-0e2b-4404-a716-66104d440550",
+    "albumName": "Random Access Memories",
+    "imageURL": "http://upload.wikimedia.org/wikipedia/en/a/a7/Random_Access_Memories.jpg"
+  }
+}
+
+</code></pre></small></p><h2>HTTP status code <a href=http://httpstatus.es/404 target=_blank>404</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p><p><small><strong>Example</strong>:<pre><code>{"message": "song not found" }
+</code></pre></small></p></div></div></div></div></div></div></div><div class="panel panel-white"><div class=panel-heading><h4 class=panel-title><a class=collapsed data-toggle=collapse href=#panel__songs__songId__file_content><span class=parent>/songs/{songId}</span>/file-content</a> <span class=methods><a href=# data-toggle=modal data-target=#_songs__songId__file_content_get><span class="badge badge_get">get</span></a> <a href=# data-toggle=modal data-target=#_songs__songId__file_content_post><span class="badge badge_post">post</span></a></span></h4></div><div id=panel__songs__songId__file_content class="panel-collapse collapse"><div class=panel-body><div class=resource-description><p>The file to be reproduced by the client</p></div><div class=list-group><a href=# data-toggle=modal data-target=#_songs__songId__file_content_get class=list-group-item><span class="badge badge_get">get</span><div class=method_description><p>Get the file content</p></div><div class=clearfix></div></a> <a href=# data-toggle=modal data-target=#_songs__songId__file_content_post class=list-group-item><span class="badge badge_post">post</span><div class=method_description><p>Enters the file content for an existing song entity.</p><p>The song needs to be created for the <code>/songs/{songId}/file-content</code> to exist. You can use this second resource to get and post the file to reproduce.</p><p>Use the "binary/octet-stream" content type to specify the content from any consumer (excepting web-browsers). Use the "multipart-form/data" content type to upload a file which content will become the file-content</p></div><div class=clearfix></div></a></div></div></div><div class="modal fade" tabindex=0 id=_songs__songId__file_content_get><div class=modal-dialog><div class=modal-content><div class=modal-header><button type=button class=close data-dismiss=modal aria-hidden=true>&times;</button><h4 class=modal-title id=myModalLabel><span class="badge badge_get">get</span> <span class=parent>/songs/{songId}</span>/file-content</h4></div><div class=modal-body><div class="alert alert-info"><p>Get the file content</p></div><ul class="nav nav-tabs"><li class=active><a href=#_songs__songId__file_content_get_request data-toggle=tab>Request</a></li><li><a href=#_songs__songId__file_content_get_response data-toggle=tab>Response</a></li></ul><div class=tab-content><div class="tab-pane active" id=_songs__songId__file_content_get_request><h3>URI Parameters</h3><ul><li><strong>songId</strong>: <em>required (string)</em></li></ul><h3>Headers</h3><ul><li><strong>X-Auth-Token</strong>: <em>required (string)</em></li></ul></div><div class=tab-pane id=_songs__songId__file_content_get_response><h2>HTTP status code <a href=http://httpstatus.es/200 target=_blank>200</a></h2><h3>Body</h3><p><strong>Type: binary/octet-stream</strong></p></div></div></div></div></div></div><div class="modal fade" tabindex=0 id=_songs__songId__file_content_post><div class=modal-dialog><div class=modal-content><div class=modal-header><button type=button class=close data-dismiss=modal aria-hidden=true>&times;</button><h4 class=modal-title id=myModalLabel><span class="badge badge_post">post</span> <span class=parent>/songs/{songId}</span>/file-content</h4></div><div class=modal-body><div class="alert alert-info"><p>Enters the file content for an existing song entity.</p><p>The song needs to be created for the <code>/songs/{songId}/file-content</code> to exist. You can use this second resource to get and post the file to reproduce.</p><p>Use the "binary/octet-stream" content type to specify the content from any consumer (excepting web-browsers). Use the "multipart-form/data" content type to upload a file which content will become the file-content</p></div><ul class="nav nav-tabs"><li class=active><a href=#_songs__songId__file_content_post_request data-toggle=tab>Request</a></li></ul><div class=tab-content><div class="tab-pane active" id=_songs__songId__file_content_post_request><h3>URI Parameters</h3><ul><li><strong>songId</strong>: <em>required (string)</em></li></ul><h3>Headers</h3><ul><li><strong>X-Auth-Token</strong>: <em>required (string)</em></li></ul><h3>Body</h3><p><strong>Type: binary/octet-stream</strong></p><p><strong>Type: multipart/form-data</strong></p><strong>Form Parameters</strong><ul><li><strong>file</strong>: <em>required (file)</em><p>The file to be uploaded</p></li></ul></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class=panel-heading><h3 id=_artists class=panel-title>Artists</h3></div><div class=panel-body><div class=top-resource-description><p>Collection of available artists in Jukebox.</p></div><div class=panel-group><div class="panel panel-white"><div class=panel-heading><h4 class=panel-title><a class=collapsed data-toggle=collapse href=#panel__artists><span class=parent></span>/artists</a> <span class=methods><a href=# data-toggle=modal data-target=#_artists_get><span class="badge badge_get">get</span></a> <a href=# data-toggle=modal data-target=#_artists_post><span class="badge badge_post">post</span></a></span></h4></div><div id=panel__artists class="panel-collapse collapse"><div class=panel-body><div class=resource-description><p>Collection of available artists in Jukebox.</p></div><div class=list-group><a href=# data-toggle=modal data-target=#_artists_get class=list-group-item><span class="badge badge_get">get</span><div class=method_description><p>Get a list of artists.</p></div><div class=clearfix></div></a> <a href=# data-toggle=modal data-target=#_artists_post class=list-group-item><span class="badge badge_post">post</span><div class=method_description><p>Add a new artist to Jukebox.</p></div><div class=clearfix></div></a></div></div></div><div class="modal fade" tabindex=0 id=_artists_get><div class=modal-dialog><div class=modal-content><div class=modal-header><button type=button class=close data-dismiss=modal aria-hidden=true>&times;</button><h4 class=modal-title id=myModalLabel><span class="badge badge_get">get</span> <span class=parent></span>/artists</h4></div><div class=modal-body><div class="alert alert-info"><p>Get a list of artists.</p></div><ul class="nav nav-tabs"><li class=active><a href=#_artists_get_request data-toggle=tab>Request</a></li><li><a href=#_artists_get_response data-toggle=tab>Response</a></li></ul><div class=tab-content><div class="tab-pane active" id=_artists_get_request><h3>Headers</h3><ul><li><strong>X-Auth-Token</strong>: <em>required (string)</em></li></ul><h3>Query Parameters</h3><ul><li><strong>offset</strong> <em>(integer)</em><p>Skip over a number of elements by specifying an offset value for the query</p><p><small><strong>Example</strong>:<pre><code>20</code></pre></small></p></li><li><strong>limit</strong> <em>(integer)</em><p>Limit the number of elements on the response</p><p><small><strong>Example</strong>:<pre><code>80</code></pre></small></p></li><li><strong>orderBy</strong> <em>(string)</em><p>Order by field: artistName, nationality</p></li><li><strong>order</strong> <em>one of (desc,asc)</em><p>Order</p></li><li><strong>query</strong> <em>(string)</em><p>JSON array [{"field1","value1","operator1"},{"field2","value2","operator2"},...,{"fieldN","valueN","operatorN"}] with valid searchable fields: countryCode</p><p><small><strong>Example</strong>:<pre><code>["countryCode", "FRA", "equals"]
+</code></pre></small></p></li></ul></div><div class=tab-pane id=_artists_get_response><h2>HTTP status code <a href=http://httpstatus.es/200 target=_blank>200</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p><p><small><strong>Example</strong>:<pre><code>[{
+  "artistId": "110e8300-e32b-41d4-a716-664400445500",
+  "artistName": "Daft Punk",
+  "description": "French electronic music duo consisting of musicians Guy-Manuel de Homem-Christo and Thomas Bangalter",
+  "imageURL": "http://travelhymns.com/wp-content/uploads/2013/06/random-access-memories1.jpg"
+  "nationality": {
+    "countryCode": "FRA",
+    "countryName": "France"
+  }
+},
+{
+  "artistId": "110e8300-e32b-41d4-a716-229932554400",
+  "artistName": "Pink Floyd",
+  "description": "English rock band that achieved international acclaim with their progressive and psychedelic music.",
+  "imageURL": "http://www.billboard.com/files/styles/promo_650/public/stylus/1251869-pink-floyd-reunions-617-409.jpg",
+  "nationality": {
+    "countryCode": "ENG",
+    "countryName": "England"
+  }
+},
+{
+  "artistId": "11032be3-41d4-4455-a716-664400a71600",
+  "artistName": "Radiohead",
+  "description": " English rock band from Abingdon, Oxfordshire, formed in 1985",
+  "imageURL": "http://www.wired.com/images_blogs/photos/uncategorized/2007/10/01/radiohead.jpg",
+  "nationality": {
+    "countryCode": "ENG",
+    "countryName": "England"
+  }
+},
+]
+
+</code></pre></small></p></div></div></div></div></div></div><div class="modal fade" tabindex=0 id=_artists_post><div class=modal-dialog><div class=modal-content><div class=modal-header><button type=button class=close data-dismiss=modal aria-hidden=true>&times;</button><h4 class=modal-title id=myModalLabel><span class="badge badge_post">post</span> <span class=parent></span>/artists</h4></div><div class=modal-body><div class="alert alert-info"><p>Add a new artist to Jukebox.</p></div><ul class="nav nav-tabs"><li class=active><a href=#_artists_post_request data-toggle=tab>Request</a></li><li><a href=#_artists_post_response data-toggle=tab>Response</a></li></ul><div class=tab-content><div class="tab-pane active" id=_artists_post_request><h3>Headers</h3><ul><li><strong>X-Auth-Token</strong>: <em>required (string)</em></li></ul><h3>Query Parameters</h3><ul><li><strong>access_token</strong> <em>required (string)</em><p>The access token provided by the authentication application</p><p><small><strong>Example</strong>:<pre><code>AABBCCDD</code></pre></small></p></li></ul><h3>Body</h3><p><strong>Type: application/json</strong></p><p><small><strong>Schema</strong>:<pre><code>{
+  "type": "object",
+  "$schema": "http://json-schema.org/draft-03/schema",
+  "id": "http://jsonschema.net",
+  "required":false,
+  "properties": {
+    "artistName": {
+      "type": "string",
+      "required":true
+    },
+    "description": {
+      "type": "string",
+      "required": false
+    },
+    "imageURL": {
+      "type": "string",
+      "required": false
+    }
+  }
+}
+</code></pre></small></p><p><small><strong>Example</strong>:<pre><code>{
+  "artistName": "Daft Punk",
+  "description": "French electronic music duo consisting of musicians Guy-Manuel de Homem-Christo and Thomas Bangalter",
+  "imageURL": "http://travelhymns.com/wp-content/uploads/2013/06/random-access-memories1.jpg"
+}
+
+</code></pre></small></p></div><div class=tab-pane id=_artists_post_response><h2>HTTP status code <a href=http://httpstatus.es/200 target=_blank>200</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p><p><small><strong>Example</strong>:<pre><code>{ "message": "The artist has been properly entered" }
+</code></pre></small></p></div></div></div></div></div></div></div><div class="panel panel-white"><div class=panel-heading><h4 class=panel-title><a class=collapsed data-toggle=collapse href=#panel__artists__artistId_><span class=parent>/artists</span>/{artistId}</a> <span class=methods><a href=# data-toggle=modal data-target=#_artists__artistId__get><span class="badge badge_get">get</span></a></span></h4></div><div id=panel__artists__artistId_ class="panel-collapse collapse"><div class=panel-body><div class=resource-description><p>Entity representing a artist</p></div><div class=list-group><a href=# data-toggle=modal data-target=#_artists__artistId__get class=list-group-item><span class="badge badge_get">get</span><div class=method_description><p>Get the artist with artistId = {artistId}</p></div><div class=clearfix></div></a></div></div></div><div class="modal fade" tabindex=0 id=_artists__artistId__get><div class=modal-dialog><div class=modal-content><div class=modal-header><button type=button class=close data-dismiss=modal aria-hidden=true>&times;</button><h4 class=modal-title id=myModalLabel><span class="badge badge_get">get</span> <span class=parent>/artists</span>/{artistId}</h4></div><div class=modal-body><div class="alert alert-info"><p>Get the artist with artistId = {artistId}</p></div><ul class="nav nav-tabs"><li class=active><a href=#_artists__artistId__get_request data-toggle=tab>Request</a></li><li><a href=#_artists__artistId__get_response data-toggle=tab>Response</a></li></ul><div class=tab-content><div class="tab-pane active" id=_artists__artistId__get_request><h3>URI Parameters</h3><ul><li><strong>artistId</strong>: <em>required (string)</em></li></ul><h3>Headers</h3><ul><li><strong>X-Auth-Token</strong>: <em>required (string)</em></li></ul></div><div class=tab-pane id=_artists__artistId__get_response><h2>HTTP status code <a href=http://httpstatus.es/200 target=_blank>200</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p><p><small><strong>Example</strong>:<pre><code>{
+  "artistId": "110e8300-e32b-41d4-a716-664400445500",
+  "artistName": "Daft Punk",
+  "description": "French electronic music duo consisting of musicians Guy-Manuel de Homem-Christo and Thomas Bangalter",
+  "imageURL": "http://travelhymns.com/wp-content/uploads/2013/06/random-access-memories1.jpg",
+  "nationality": {
+    "countryCode": "FRA",
+    "countryName": "France"
+  }
+  "albums": [
+  {
+    "albumId": "183100e3-0e2b-4404-a716-66104d440550",
+    "albumName": "Random Access Memories",
+    "imageURL": "http://upload.wikimedia.org/wikipedia/en/a/a7/Random_Access_Memories.jpg"
+  },
+  {
+    "albumId": "183100e3-0e2b-4404-a716-66104d440551",
+    "albumName": "TRON: Legacy R3CONF1GUR3D",
+    "imageURL": "http://ecx.images-amazon.com/images/I/51Tvo-iArBL.jpg"
+  },
+  {
+    "albumId": "183100e3-0e2b-4404-a716-66104d440552",
+    "albumName": "TRON: Legacy",
+    "imageURL": "http://upload.wikimedia.org/wikipedia/en/3/39/Tron_Legacy_Soundtrack.jpg"
+  },
+  {
+    "albumId": "183100e3-0e2b-4404-a716-66104d440553",
+    "albumName": "Alive",
+    "imageURL": "http://upload.wikimedia.org/wikipedia/en/4/49/Daft_Punk_Alive_2007.JPG"
+  },
+  {
+    "albumId": "183100e3-0e2b-4404-a716-66104d440554",
+    "albumName": "Musique Vol. 1",
+    "imageURL": "http://upload.wikimedia.org/wikipedia/en/a/ab/Musique_Vol._1_1993%E2%80%932005.png"
+  },
+  {
+    "albumId": "183100e3-0e2b-4404-a716-66104d440555",
+    "albumName": "Human After All",
+    "imageURL": "http://upload.wikimedia.org/wikipedia/en/0/0d/Humanafterall.jpg"
+  },
+  {
+    "albumId": "183100e3-0e2b-4404-a716-66104d440556",
+    "albumName": "Daft Club",
+    "imageURL": "http://upload.wikimedia.org/wikipedia/en/f/fc/Daftclub.jpg"
+  },
+  {
+    "albumId": "183100e3-0e2b-4404-a716-66104d440557",
+    "albumName": "Discovery",
+    "imageURL": "http://ecx.images-amazon.com/images/I/71bsHTr6idL._SL1500_.jpg"
+  }]
+}
+
+</code></pre></small></p><h2>HTTP status code <a href=http://httpstatus.es/404 target=_blank>404</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p><p><small><strong>Example</strong>:<pre><code>{"message": "artist not found" }
+</code></pre></small></p></div></div></div></div></div></div></div><div class="panel panel-white"><div class=panel-heading><h4 class=panel-title><a class=collapsed data-toggle=collapse href=#panel__artists__artistId__albums><span class=parent>/artists/{artistId}</span>/albums</a> <span class=methods><a href=# data-toggle=modal data-target=#_artists__artistId__albums_get><span class="badge badge_get">get</span></a></span></h4></div><div id=panel__artists__artistId__albums class="panel-collapse collapse"><div class=panel-body><div class=resource-description><p>Collection of albulms belonging to the artist</p></div><div class=list-group><a href=# data-toggle=modal data-target=#_artists__artistId__albums_get class=list-group-item><span class="badge badge_get">get</span><div class=method_description><p>Get a specific artist&#39;s albums list</p></div><div class=clearfix></div></a></div></div></div><div class="modal fade" tabindex=0 id=_artists__artistId__albums_get><div class=modal-dialog><div class=modal-content><div class=modal-header><button type=button class=close data-dismiss=modal aria-hidden=true>&times;</button><h4 class=modal-title id=myModalLabel><span class="badge badge_get">get</span> <span class=parent>/artists/{artistId}</span>/albums</h4></div><div class=modal-body><div class="alert alert-info"><p>Get a specific artist&#39;s albums list</p></div><ul class="nav nav-tabs"><li class=active><a href=#_artists__artistId__albums_get_request data-toggle=tab>Request</a></li><li><a href=#_artists__artistId__albums_get_response data-toggle=tab>Response</a></li></ul><div class=tab-content><div class="tab-pane active" id=_artists__artistId__albums_get_request><h3>URI Parameters</h3><ul><li><strong>artistId</strong>: <em>required (string)</em></li></ul><h3>Headers</h3><ul><li><strong>X-Auth-Token</strong>: <em>required (string)</em></li></ul><h3>Query Parameters</h3><ul><li><strong>offset</strong> <em>(integer)</em><p>Skip over a number of elements by specifying an offset value for the query</p><p><small><strong>Example</strong>:<pre><code>20</code></pre></small></p></li><li><strong>limit</strong> <em>(integer)</em><p>Limit the number of elements on the response</p><p><small><strong>Example</strong>:<pre><code>80</code></pre></small></p></li><li><strong>orderBy</strong> <em>(string)</em><p>Order by field: albumName</p></li><li><strong>order</strong> <em>one of (desc,asc)</em><p>Order</p></li></ul></div><div class=tab-pane id=_artists__artistId__albums_get_response><h2>HTTP status code <a href=http://httpstatus.es/200 target=_blank>200</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p><p><small><strong>Example</strong>:<pre><code>[
+  {
+    "albumId": "183100e3-0e2b-4404-a716-66104d440550",
+    "albumName": "Random Access Memories",
+    "imageURL": "http://upload.wikimedia.org/wikipedia/en/a/a7/Random_Access_Memories.jpg"
+  },
+  {
+    "albumId": "183100e3-0e2b-4404-a716-66104d440551",
+    "albumName": "TRON: Legacy R3CONF1GUR3D",
+    "imageURL": "http://ecx.images-amazon.com/images/I/51Tvo-iArBL.jpg"
+  },
+  {
+    "albumId": "183100e3-0e2b-4404-a716-66104d440552",
+    "albumName": "TRON: Legacy",
+    "imageURL": "http://upload.wikimedia.org/wikipedia/en/3/39/Tron_Legacy_Soundtrack.jpg"
+  },
+  {
+    "albumId": "183100e3-0e2b-4404-a716-66104d440553",
+    "albumName": "Alive",
+    "imageURL": "http://upload.wikimedia.org/wikipedia/en/4/49/Daft_Punk_Alive_2007.JPG"
+  },
+  {
+    "albumId": "183100e3-0e2b-4404-a716-66104d440554",
+    "albumName": "Musique Vol. 1",
+    "imageURL": "http://upload.wikimedia.org/wikipedia/en/a/ab/Musique_Vol._1_1993%E2%80%932005.png"
+  },
+  {
+    "albumId": "183100e3-0e2b-4404-a716-66104d440555",
+    "albumName": "Human After All",
+    "imageURL": "http://upload.wikimedia.org/wikipedia/en/0/0d/Humanafterall.jpg"
+  },
+  {
+    "albumId": "183100e3-0e2b-4404-a716-66104d440556",
+    "albumName": "Daft Club",
+    "imageURL": "http://upload.wikimedia.org/wikipedia/en/f/fc/Daftclub.jpg"
+  },
+  {
+    "albumId": "183100e3-0e2b-4404-a716-66104d440557",
+    "albumName": "Discovery",
+    "imageURL": "http://ecx.images-amazon.com/images/I/71bsHTr6idL._SL1500_.jpg"
+  }
+]
+
+</code></pre></small></p></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class=panel-heading><h3 id=_albums class=panel-title>Albums</h3></div><div class=panel-body><div class=top-resource-description><p>Collection of available albums in Jukebox.</p></div><div class=panel-group><div class="panel panel-white"><div class=panel-heading><h4 class=panel-title><a class=collapsed data-toggle=collapse href=#panel__albums><span class=parent></span>/albums</a> <span class=methods><a href=# data-toggle=modal data-target=#_albums_get><span class="badge badge_get">get</span></a> <a href=# data-toggle=modal data-target=#_albums_post><span class="badge badge_post">post</span></a></span></h4></div><div id=panel__albums class="panel-collapse collapse"><div class=panel-body><div class=resource-description><p>Collection of available albums in Jukebox.</p></div><div class=list-group><a href=# data-toggle=modal data-target=#_albums_get class=list-group-item><span class="badge badge_get">get</span><div class=method_description><p>Get a list of albums.</p></div><div class=clearfix></div></a> <a href=# data-toggle=modal data-target=#_albums_post class=list-group-item><span class="badge badge_post">post</span><div class=method_description><p>Add a new album to Jukebox.</p></div><div class=clearfix></div></a></div></div></div><div class="modal fade" tabindex=0 id=_albums_get><div class=modal-dialog><div class=modal-content><div class=modal-header><button type=button class=close data-dismiss=modal aria-hidden=true>&times;</button><h4 class=modal-title id=myModalLabel><span class="badge badge_get">get</span> <span class=parent></span>/albums</h4></div><div class=modal-body><div class="alert alert-info"><p>Get a list of albums.</p></div><ul class="nav nav-tabs"><li class=active><a href=#_albums_get_request data-toggle=tab>Request</a></li><li><a href=#_albums_get_response data-toggle=tab>Response</a></li></ul><div class=tab-content><div class="tab-pane active" id=_albums_get_request><h3>Headers</h3><ul><li><strong>X-Auth-Token</strong>: <em>required (string)</em></li></ul><h3>Query Parameters</h3><ul><li><strong>offset</strong> <em>(integer)</em><p>Skip over a number of elements by specifying an offset value for the query</p><p><small><strong>Example</strong>:<pre><code>20</code></pre></small></p></li><li><strong>limit</strong> <em>(integer)</em><p>Limit the number of elements on the response</p><p><small><strong>Example</strong>:<pre><code>80</code></pre></small></p></li><li><strong>orderBy</strong> <em>(string)</em><p>Order by field: albumName, genre</p></li><li><strong>order</strong> <em>one of (desc,asc)</em><p>Order</p></li><li><strong>query</strong> <em>(string)</em><p>JSON array [{"field1","value1","operator1"},{"field2","value2","operator2"},...,{"fieldN","valueN","operatorN"}] with valid searchable fields: genreCode</p><p><small><strong>Example</strong>:<pre><code>["genreCode", "ELE", "equals"]
+</code></pre></small></p></li></ul></div><div class=tab-pane id=_albums_get_response><h2>HTTP status code <a href=http://httpstatus.es/200 target=_blank>200</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p><p><small><strong>Example</strong>:<pre><code>[
+  {
+    "albumId": "183100e3-0e2b-4404-a716-66104d440550",
+    "albumName": "Random Access Memories",
+    "imageURL": "http://upload.wikimedia.org/wikipedia/en/a/a7/Random_Access_Memories.jpg",
+    "artistId": "110e8300-e32b-41d4-a716-664400445500",
+    "genre": {
+      "countryCode": "ELE",
+      "countryName": "Electronict"
+    }
+  },
+  {
+    "albumId": "183100e3-0e2b-4404-3123-66111d4de520",
+    "albumName": "OK Computer",
+    "imageURL": "http://www.greenplastic.com/dev/wp-content/uploads/2010/12/ok-computer.jpg",
+    "artistId": "11032be3-41d4-4455-a716-664400a71600",
+    "genre": {
+      "countryCode": "ALT",
+      "countryName": "Alternative Rock"
+    }
+  },
+  {
+    "albumId": "183100e3-cccc-4404-1111-63204d64coda",
+    "albumName": "The Dark Side of the Moon",
+    "imageURL": "http://upload.wikimedia.org/wikipedia/en/3/3b/Dark_Side_of_the_Moon.png",
+    "artistId": "110e8300-e32b-41d4-a716-229932554400",
+    "genre": {
+      "countryCode": "PRO",
+      "countryName": "Progressive Rock"
+    }
+  }
+]
+
+</code></pre></small></p></div></div></div></div></div></div><div class="modal fade" tabindex=0 id=_albums_post><div class=modal-dialog><div class=modal-content><div class=modal-header><button type=button class=close data-dismiss=modal aria-hidden=true>&times;</button><h4 class=modal-title id=myModalLabel><span class="badge badge_post">post</span> <span class=parent></span>/albums</h4></div><div class=modal-body><div class="alert alert-info"><p>Add a new album to Jukebox.</p></div><ul class="nav nav-tabs"><li class=active><a href=#_albums_post_request data-toggle=tab>Request</a></li><li><a href=#_albums_post_response data-toggle=tab>Response</a></li></ul><div class=tab-content><div class="tab-pane active" id=_albums_post_request><h3>Headers</h3><ul><li><strong>X-Auth-Token</strong>: <em>required (string)</em></li></ul><h3>Query Parameters</h3><ul><li><strong>access_token</strong> <em>required (string)</em><p>The access token provided by the authentication application</p><p><small><strong>Example</strong>:<pre><code>AABBCCDD</code></pre></small></p></li></ul><h3>Body</h3><p><strong>Type: application/json</strong></p><p><small><strong>Schema</strong>:<pre><code>{
+  "type": "object",
+  "$schema": "http://json-schema.org/draft-03/schema",
+  "id": "http://jsonschema.net",
+  "required":false,
+  "properties": {
+    "albumId": {
+      "type": "string",
+      "required":true,
+      "minLength": 36,
+      "maxLength": 36
+    },
+    "albumName": {
+      "type": "string",
+      "required": true
+    },
+    "year": {
+      "type": "string",
+      "required": false
+    },
+    "iamgeURL": {
+      "type": "string",
+      "required": false
+    },
+    "genreCode": {
+      "type": "string",
+      "required": true
+    },
+    "artistId": {
+      "type": "string",
+      "required":true,
+      "minLength": 36,
+      "maxLength": 36
+    }
+  }
+} 
+</code></pre></small></p><p><small><strong>Example</strong>:<pre><code>{
+  "albumId": "183100e3-0e2b-4404-a716-66104d440550",
+  "albumName": "Random Access Memories",
+  "year": "2013",
+  "imageURL": "http://upload.wikimedia.org/wikipedia/en/a/a7/Random_Access_Memories.jpg",
+  "genreCode": "ELE",
+  "artistId": "110e8300-e32b-41d4-a716-664400445500"
+}
+
+</code></pre></small></p></div><div class=tab-pane id=_albums_post_response><h2>HTTP status code <a href=http://httpstatus.es/200 target=_blank>200</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p><p><small><strong>Example</strong>:<pre><code>{ "message": "The album has been properly entered" }
+</code></pre></small></p></div></div></div></div></div></div></div><div class="panel panel-white"><div class=panel-heading><h4 class=panel-title><a class=collapsed data-toggle=collapse href=#panel__albums__albumId_><span class=parent>/albums</span>/{albumId}</a> <span class=methods><a href=# data-toggle=modal data-target=#_albums__albumId__get><span class="badge badge_get">get</span></a></span></h4></div><div id=panel__albums__albumId_ class="panel-collapse collapse"><div class=panel-body><div class=resource-description><p>Entity representing a album</p></div><div class=list-group><a href=# data-toggle=modal data-target=#_albums__albumId__get class=list-group-item><span class="badge badge_get">get</span><div class=method_description><p>Get the album with albumId = {albumId}</p></div><div class=clearfix></div></a></div></div></div><div class="modal fade" tabindex=0 id=_albums__albumId__get><div class=modal-dialog><div class=modal-content><div class=modal-header><button type=button class=close data-dismiss=modal aria-hidden=true>&times;</button><h4 class=modal-title id=myModalLabel><span class="badge badge_get">get</span> <span class=parent>/albums</span>/{albumId}</h4></div><div class=modal-body><div class="alert alert-info"><p>Get the album with albumId = {albumId}</p></div><ul class="nav nav-tabs"><li class=active><a href=#_albums__albumId__get_request data-toggle=tab>Request</a></li><li><a href=#_albums__albumId__get_response data-toggle=tab>Response</a></li></ul><div class=tab-content><div class="tab-pane active" id=_albums__albumId__get_request><h3>URI Parameters</h3><ul><li><strong>albumId</strong>: <em>required (string)</em></li></ul><h3>Headers</h3><ul><li><strong>X-Auth-Token</strong>: <em>required (string)</em></li></ul></div><div class=tab-pane id=_albums__albumId__get_response><h2>HTTP status code <a href=http://httpstatus.es/200 target=_blank>200</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p><p><small><strong>Example</strong>:<pre><code>{
+  "albumId": "183100e3-0e2b-4404-a716-66104d440550",
+  "albumName": "Random Access Memories",
+  "year": "2013",
+  "genre": "Electric Funk",
+  "imageURL": "http://upload.wikimedia.org/wikipedia/en/a/a7/Random_Access_Memories.jpg",
+  "genre": {
+    "countryCode": "ELE",
+    "countryName": "Electronict"
+  },
+  "songs": [
+  {
+    "songId": "550e8400-e29b-41d4-a716-446655440000",
+    "songTitle": "Get Lucky"
+  },
+  {
+    "songId": "550e8400-e29b-41d4-a716-446655440111",
+    "songTitle": "Loose yourself to dance"
+  },
+  {
+    "songId": "550e8400-e29b-41d4-a716-446655440222",
+    "songTitle": "Gio sorgio by Moroder"
+  }
+  ],
+  "artist": {
+    "artistId": "110e8300-e32b-41d4-a716-664400445500",
+    "artistName": "Daft Punk",
+    "imageURL": "http://travelhymns.com/wp-content/uploads/2013/06/random-access-memories1.jpg"
+  }
+}
+
+</code></pre></small></p><h2>HTTP status code <a href=http://httpstatus.es/404 target=_blank>404</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p><p><small><strong>Example</strong>:<pre><code>{"message": "album not found" }
+</code></pre></small></p></div></div></div></div></div></div></div><div class="panel panel-white"><div class=panel-heading><h4 class=panel-title><a class=collapsed data-toggle=collapse href=#panel__albums__albumId__songs><span class=parent>/albums/{albumId}</span>/songs</a> <span class=methods><a href=# data-toggle=modal data-target=#_albums__albumId__songs_get><span class="badge badge_get">get</span></a></span></h4></div><div id=panel__albums__albumId__songs class="panel-collapse collapse"><div class=panel-body><div class=resource-description><p>Collection of available songs in Jukebox.</p></div><div class=list-group><a href=# data-toggle=modal data-target=#_albums__albumId__songs_get class=list-group-item><span class="badge badge_get">get</span><div class=method_description><p>Get the list of songs for the album with <code>albumId = {albumId}</code></p></div><div class=clearfix></div></a></div></div></div><div class="modal fade" tabindex=0 id=_albums__albumId__songs_get><div class=modal-dialog><div class=modal-content><div class=modal-header><button type=button class=close data-dismiss=modal aria-hidden=true>&times;</button><h4 class=modal-title id=myModalLabel><span class="badge badge_get">get</span> <span class=parent>/albums/{albumId}</span>/songs</h4></div><div class=modal-body><div class="alert alert-info"><p>Get the list of songs for the album with <code>albumId = {albumId}</code></p></div><ul class="nav nav-tabs"><li class=active><a href=#_albums__albumId__songs_get_request data-toggle=tab>Request</a></li><li><a href=#_albums__albumId__songs_get_response data-toggle=tab>Response</a></li></ul><div class=tab-content><div class="tab-pane active" id=_albums__albumId__songs_get_request><h3>URI Parameters</h3><ul><li><strong>albumId</strong>: <em>required (string)</em></li></ul><h3>Headers</h3><ul><li><strong>X-Auth-Token</strong>: <em>required (string)</em></li></ul><h3>Query Parameters</h3><ul><li><strong>orderBy</strong> <em>(string)</em><p>Order by field: songTitle</p></li><li><strong>order</strong> <em>one of (desc,asc)</em><p>Order</p></li></ul></div><div class=tab-pane id=_albums__albumId__songs_get_response><h2>HTTP status code <a href=http://httpstatus.es/200 target=_blank>200</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p><p><small><strong>Example</strong>:<pre><code>[
+  {
+    "songId": "550e8400-e29b-41d4-a716-446655440000",
+    "songTitle": "Get Lucky"
+  },
+  {
+    "songId": "550e8400-e29b-41d4-a716-446655440111",
+    "songTitle": "Loose yourself to dance"
+  },
+  {
+    "songId": "550e8400-e29b-41d4-a716-446655440222",
+    "songTitle": "Gio sorgio by Moroder"
+  }
+]
+
+</code></pre></small></p></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class=panel-heading><h3 id=_auth class=panel-title>/auth</h3></div><div class=panel-body><div class=panel-group><div class="panel panel-white"><div class=panel-heading><h4 class=panel-title><a class=collapsed data-toggle=collapse href=#panel__auth><span class=parent></span>/auth</a> <span class=methods></span></h4></div><div id=panel__auth class="panel-collapse collapse"><div class=panel-body><div class=list-group></div></div></div></div><div class="panel panel-white"><div class=panel-heading><h4 class=panel-title><a class=collapsed data-toggle=collapse href=#panel__auth_login><span class=parent>/auth</span>/login</a> <span class=methods><a href=# data-toggle=modal data-target=#_auth_login_post><span class="badge badge_post">post</span></a></span></h4></div><div id=panel__auth_login class="panel-collapse collapse"><div class=panel-body><div class=list-group><a href=# data-toggle=modal data-target=#_auth_login_post class=list-group-item><span class="badge badge_post">post</span><div class=method_description><p>Login to the application</p></div><div class=clearfix></div></a></div></div></div><div class="modal fade" tabindex=0 id=_auth_login_post><div class=modal-dialog><div class=modal-content><div class=modal-header><button type=button class=close data-dismiss=modal aria-hidden=true>&times;</button><h4 class=modal-title id=myModalLabel><span class="badge badge_post">post</span> <span class=parent>/auth</span>/login</h4></div><div class=modal-body><div class="alert alert-info"><p>Login to the application</p></div><ul class="nav nav-tabs"><li class=active><a href=#_auth_login_post_request data-toggle=tab>Request</a></li><li><a href=#_auth_login_post_response data-toggle=tab>Response</a></li></ul><div class=tab-content><div class="tab-pane active" id=_auth_login_post_request><h3>Body</h3><p><strong>Type: application/json</strong></p></div><div class=tab-pane id=_auth_login_post_response><h2>HTTP status code <a href=http://httpstatus.es/200 target=_blank>200</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p><h2>HTTP status code <a href=http://httpstatus.es/401 target=_blank>401</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p><h2>HTTP status code <a href=http://httpstatus.es/403 target=_blank>403</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p></div></div></div></div></div></div></div></div></div></div></div><div class=col-md-3><div id=sidebar class="hidden-print affix" role=complementary><ul class="nav nav-pills nav-stacked"><li><a href=#_songs>Songs</a></li><li><a href=#_artists>Artists</a></li><li><a href=#_albums>Albums</a></li><li><a href=#_auth>/auth</a></li></ul></div></div></div></div></body></html>
