@@ -2,8 +2,6 @@ package iamedu.raml
 
 import iamedu.raml.exception.RamlResponseValidationException
 import org.springframework.context.ApplicationContext
-import org.springframework.http.HttpStatus
-import org.springframework.http.ResponseEntity
 import services.ApiHeaderParamService
 import services.ApiQueryParamService
 import services.ApiUrlParamService
@@ -14,6 +12,8 @@ import javax.servlet.http.HttpServletResponse
 import javax.ws.rs.HeaderParam
 import javax.ws.rs.PathParam
 import javax.ws.rs.QueryParam
+import javax.ws.rs.core.Response
+
 
 /**
  * Created by tomas on 8/25/14.
@@ -65,11 +65,11 @@ class RamlApiHandlerTest extends Specification {
     when:
       RamlHandlerService ramlHandlerService = new RamlHandlerService(ramlDefinition: "raml/jukebox-api.raml", reloadRaml: true)
       RamlApiHandler handler = new RamlApiHandler(appContext, ramlHandlerService, true, false)
-      ResponseEntity<String> res = handler.handle(request, response)
+      Response res = handler.handle(request, response)
     then:
       res != null
-      res.statusCode == HttpStatus.OK
-      res.body != null
+      res.status == 200
+      res.getEntity() != null
 
   }
 
@@ -86,11 +86,11 @@ class RamlApiHandlerTest extends Specification {
     when:
       RamlHandlerService ramlHandlerService = new RamlHandlerService(ramlDefinition: "raml/jukebox-api.raml", reloadRaml: true)
       RamlApiHandler handler = new RamlApiHandler(appContext, ramlHandlerService, true, false)
-      ResponseEntity<String> res = handler.handle(request, response)
+      Response res = handler.handle(request, response)
     then:
       res != null
-      res.statusCode == HttpStatus.OK
-      res.body.toString() == '"hola"'
+      res.status == 200
+      res.getEntity().toString() == '"hola"'
   }
 
   def "Handle with service strictMode"() {
@@ -108,7 +108,7 @@ class RamlApiHandlerTest extends Specification {
     when:
       RamlHandlerService ramlHandlerService = new RamlHandlerService(ramlDefinition: "raml/jukebox-api.raml", reloadRaml: true)
       RamlApiHandler handler = new RamlApiHandler(appContext, ramlHandlerService, true, true)
-      ResponseEntity<String> res = handler.handle(request, response)
+      Response res = handler.handle(request, response)
     then:
       thrown RamlResponseValidationException
 
@@ -131,11 +131,11 @@ class RamlApiHandlerTest extends Specification {
     when:
       RamlHandlerService ramlHandlerService = new RamlHandlerService(ramlDefinition: "raml/jukebox-api.raml", reloadRaml: true)
       RamlApiHandler handler = new RamlApiHandler(appContext, ramlHandlerService, true, false)
-      ResponseEntity<String> res = handler.handle(request, response)
+      Response res = handler.handle(request, response)
     then:
       res != null
-      res.statusCode == HttpStatus.OK
-      res.body.toString() == '"metro"'
+      res.status == 200
+      res.getEntity().toString() == '"metro"'
   }
 
   def "Handle with service @PathParam"() {
@@ -158,11 +158,11 @@ class RamlApiHandlerTest extends Specification {
       println request.getRequestURI()
       RamlHandlerService ramlHandlerService = new RamlHandlerService(ramlDefinition: "raml/jukebox-api.raml", reloadRaml: true)
       RamlApiHandler handler = new RamlApiHandler(appContext, ramlHandlerService, true, false)
-      ResponseEntity<String> res = handler.handle(request, response)
+      Response res = handler.handle(request, response)
     then:
       res != null
-      res.statusCode == HttpStatus.OK
-      res.body.toString() == '"10"'
+      res.status == 200
+      res.getEntity().toString() == '"10"'
   }
 
   def "Handle with service @HeaderParam"() {
@@ -185,11 +185,11 @@ class RamlApiHandlerTest extends Specification {
       println request.getRequestURI()
       RamlHandlerService ramlHandlerService = new RamlHandlerService(ramlDefinition: "raml/jukebox-api.raml", reloadRaml: true)
       RamlApiHandler handler = new RamlApiHandler(appContext, ramlHandlerService, true, false)
-      ResponseEntity<String> res = handler.handle(request, response)
+      Response res = handler.handle(request, response)
     then:
       res != null
-      res.statusCode == HttpStatus.OK
-      res.body.toString() == '"auth-token"'
+      res.status == 200
+      res.getEntity().toString() == '"auth-token"'
   }
 
 

@@ -10,16 +10,18 @@ import org.apache.commons.lang.StringUtils
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.context.ApplicationContext
-import org.springframework.http.HttpHeaders
-import org.springframework.http.HttpStatus
-import org.springframework.http.ResponseEntity
-import org.springframework.web.util.WebUtils
+//import org.springframework.http.HttpHeaders
+//import org.springframework.http.HttpStatus
+//import org.springframework.http.ResponseEntity
+//import org.springframework.web.util.WebUtils
 
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
 import javax.ws.rs.HeaderParam
 import javax.ws.rs.PathParam
 import javax.ws.rs.QueryParam
+import javax.ws.rs.core.HttpHeaders
+import javax.ws.rs.core.Response
 
 /**
  * Created by atomsfat on 8/20/14.
@@ -36,7 +38,7 @@ class RamlApiHandler {
   Boolean strictMode = false
 
 
-  ResponseEntity<String> handle(HttpServletRequest request, HttpServletResponse response) {
+  Response handle(HttpServletRequest request, HttpServletResponse response) {
 
     def validator = ramlHandlerService.buildValidator()
     def (EndpointValidator endpointValidator, paramValues) = validator.handleResource(getForwardURI(request))
@@ -77,15 +79,18 @@ class RamlApiHandler {
       result = endpointValidator.generateExampleResponse(req)
     }
 
-    HttpHeaders responseHeaders = new HttpHeaders();
 
+    Response.Status status = Response.Status.fromStatusCode(result.statusCode)
     if (result.contentType?.startsWith("application/json")) {
-      responseHeaders.set("Content-Type", result.contentType);
+//      responseHeaders.set("Content-Type", result.contentType);
       Gson gson = new Gson()
-      return new ResponseEntity<String>(gson.toJson(result.body), responseHeaders, HttpStatus.valueOf(result.statusCode))
+
+      Response res = Response.status(status).entity(gson.toJson(result.body)).build()
+      return res
     } else {
-      responseHeaders.set("Content-Type", result.contentType);
-      return new ResponseEntity<String>(result.body, HttpStatus.valueOf(result.statusCode))
+//      responseHeaders.set("Content-Type", result.contentType);
+      Response res = Response.status(status).entity(result.body).build()
+      return res
     }
 
   }
@@ -158,7 +163,7 @@ class RamlApiHandler {
   }
 
   public static String getForwardURI(HttpServletRequest request) {
-    String result = (String) request.getAttribute(WebUtils.FORWARD_REQUEST_URI_ATTRIBUTE);
+    String result = ""//(String) request.getAttribute(WebUtils.FORWARD_REQUEST_URI_ATTRIBUTE);
     if (StringUtils.isBlank(result)) result = request.getRequestURI();
     return result;
   }

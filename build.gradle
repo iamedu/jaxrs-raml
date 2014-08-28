@@ -47,7 +47,9 @@ dependencies {
     exclude group: "junit"
   }
 
-  compile 'javax.ws.rs:javax.ws.rs-api:2.0.1'
+
+  compile 'org.glassfish.jersey.core:jersey-common:2.11'
+
   compile 'org.codehaus.groovy:groovy-all:2.3.2'
 
 
